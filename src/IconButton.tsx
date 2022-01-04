@@ -14,7 +14,8 @@ export default function IconButton({
   isActive,
   className,
   disabled = false,
-}: Props) {
+  ...props
+}: Props & JSX.IntrinsicElements['button']) {
   return (
     <button
       disabled={disabled}
@@ -22,6 +23,7 @@ export default function IconButton({
         isActive ? styles.button_active : ''
       } ${className}`}
       onClick={onClick}
+      {...props}
     >
       {children}
     </button>

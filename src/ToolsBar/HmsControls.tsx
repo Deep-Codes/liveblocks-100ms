@@ -23,6 +23,7 @@ const HmsControls = () => {
       .then((t) => setToken(t))
       .catch((e) => console.log('Error: ', e));
   }, []);
+  const [name, setName] = React.useState('');
   const isConnected = useHMSStore(selectIsConnectedToRoom);
   const className = `p-1.5 mx-1`;
   const actions = useHMSActions();
@@ -53,7 +54,7 @@ const HmsControls = () => {
     try {
       actions.join({
         authToken: token,
-        userName: 'Hello World',
+        userName: name || 'John Doe',
         settings: {
           isAudioMuted: true,
           isVideoMuted: true,
@@ -86,13 +87,31 @@ const HmsControls = () => {
           </IconButton>
         </>
       ) : (
-        <IconButton
-          disabled={token ? false : true}
-          className={className}
-          onClick={join}
+        <form
+          className='flex items-center'
+          onSubmit={(e) => {
+            e.preventDefault();
+            join();
+          }}
         >
-          <InviteIcon />
-        </IconButton>
+          <input
+            required
+            type='text'
+            maxLength={15}
+            placeholder='Enter name'
+            className='w-32'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <IconButton
+            type='submit'
+            disabled={token ? false : true}
+            className={className}
+            onClick={join}
+          >
+            <InviteIcon />
+          </IconButton>
+        </form>
       )}
     </>
   );
