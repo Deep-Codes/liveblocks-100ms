@@ -6,9 +6,9 @@ import {
   useMap,
   useHistory,
   useBatch,
-} from "@liveblocks/react";
-import { LiveList, LiveMap, LiveObject } from "@liveblocks/client";
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+} from '@liveblocks/react';
+import { LiveList, LiveMap, LiveObject } from '@liveblocks/client';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   Color,
   Layer,
@@ -20,8 +20,8 @@ import {
   Side,
   XYWH,
   Point,
-} from "./types";
-import styles from "./index.module.css";
+} from './types';
+import styles from './index.module.css';
 import {
   colorToCss,
   connectionIdToColor,
@@ -30,24 +30,24 @@ import {
   penPointsToPathLayer,
   pointerEventToCanvasPoint,
   resizeBounds,
-} from "./utils";
-import SelectionBox from "./SelectionBox";
-import { nanoid } from "nanoid";
-import LayerComponent from "./LayerComponent";
-import SelectionTools from "./SelectionTools";
-import LoadingIndicator from "../components/LoadingIndicator";
-import useSelectionBounds from "./useSelectionBounds";
-import useDisableScrollBounce from "./useDisableScrollBounce";
-import MultiplayerGuides from "./MultiplayerGuides";
-import Path from "./Path";
-import ToolsBar from "./ToolsBar";
+} from './utils';
+import SelectionBox from './SelectionBox';
+import { nanoid } from 'nanoid';
+import LayerComponent from './LayerComponent';
+import SelectionTools from './SelectionTools';
+import LoadingIndicator from '../components/LoadingIndicator';
+import useSelectionBounds from './useSelectionBounds';
+import useDisableScrollBounce from './useDisableScrollBounce';
+import MultiplayerGuides from './MultiplayerGuides';
+import Path from './Path';
+import ToolsBar from './ToolsBar';
 
 const MAX_LAYERS = 100;
 
 export default function Room() {
   return (
     <RoomProvider
-      id={"multiplayer-canvas"}
+      id={'multiplayer-canvas'}
       defaultPresence={() => ({
         selection: [],
         penPoints: null,
@@ -63,9 +63,9 @@ export default function Room() {
 
 function WhiteboardTool() {
   // layers is a LiveMap that contains all the shapes drawn on the canvas
-  const layers = useMap<string, LiveObject<Layer>>("layers");
+  const layers = useMap<string, LiveObject<Layer>>('layers');
   // layerIds is LiveList of all the layer ids ordered by their z-index
-  const layerIds = useList<string>("layerIds");
+  const layerIds = useList<string>('layerIds');
 
   if (layerIds == null || layers == null) {
     return <LoadingIndicator />;
@@ -121,11 +121,11 @@ function Canvas({
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       switch (e.key) {
-        case "Backspace": {
+        case 'Backspace': {
           deleteLayers();
           break;
         }
-        case "z": {
+        case 'z': {
           if (e.ctrlKey || e.metaKey) {
             if (e.shiftKey) {
               history.redo();
@@ -138,10 +138,10 @@ function Canvas({
       }
     }
 
-    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener('keydown', onKeyDown);
 
     return () => {
-      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener('keydown', onKeyDown);
     };
   }, [selection, deleteLayers, history]);
 
@@ -154,7 +154,7 @@ function Canvas({
       const selectedLayers = getSelectedLayers(layers, selection);
       batch(() => {
         for (const layer of selectedLayers) {
-          layer.set("fill", fill);
+          layer.set('fill', fill);
         }
       });
     },
@@ -313,8 +313,8 @@ function Canvas({
           const layer = layers.get(id);
           if (layer) {
             layer.update({
-              x: layer.get("x") + offset.x,
-              y: layer.get("y") + offset.y,
+              x: layer.get('x') + offset.x,
+              y: layer.get('y') + offset.y,
             });
           }
         }

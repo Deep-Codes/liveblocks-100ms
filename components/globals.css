@@ -30,3 +30,7 @@ input:focus-visible,
 button:focus-visible {
   @apply outline-none;
 }
+
+.mirror {
+  transform: scaleX(-1);
+}

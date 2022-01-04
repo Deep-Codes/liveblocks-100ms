@@ -3,6 +3,7 @@ import Head from 'next/head';
 import SingleLineCodeBlock from '../components/SingleLineCodeBlock';
 import InlineCodeBlock from '../components/InlineCodeBlock';
 import Whiteboard from '../src';
+import VideoList from '../src/Hms/VideoList';
 
 export async function getStaticProps() {
   return {
@@ -39,9 +40,9 @@ export default function Home({
           href='/favicon-16x16.png'
         />
       </Head>
-
       {hasSetupLiveblocksKey ? (
-        <main>
+        <main className='relative'>
+          <VideoList />
           <Whiteboard />
         </main>
       ) : isRunningOnCodeSandbox ? (

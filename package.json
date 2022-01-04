@@ -9,6 +9,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@100mslive/hms-video": "^0.1.39",
+    "@100mslive/hms-video-store": "^0.2.85",
+    "@100mslive/react-icons": "0.0.3-alpha.3",
+    "@100mslive/react-sdk": "0.0.2-alpha",
     "@liveblocks/client": "^0.13.1",
     "@liveblocks/node": "0.3.0",
     "@liveblocks/react": "^0.13.1",

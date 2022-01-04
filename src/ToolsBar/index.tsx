@@ -1,12 +1,13 @@
-import React from "react";
-import PencilButton from "./PencilButton";
-import RectangleButton from "./RectangleButton";
-import EllipseButton from "./EllipseButton";
-import UndoButton from "./UndoButton";
-import RedoButton from "./RedoButton";
-import SelectionButton from "./SelectionButton";
-import { CanvasMode, LayerType, CanvasState } from "../types";
-import styles from "./index.module.css";
+import React from 'react';
+import PencilButton from './PencilButton';
+import RectangleButton from './RectangleButton';
+import EllipseButton from './EllipseButton';
+import UndoButton from './UndoButton';
+import RedoButton from './RedoButton';
+import SelectionButton from './SelectionButton';
+import { CanvasMode, LayerType, CanvasState } from '../types';
+import styles from './index.module.css';
+import HmsControls from './HmsControls';
 
 type Props = {
   canvasState: CanvasState;
@@ -68,6 +69,10 @@ export default function ToolsBar({
         <div className={styles.tools_panel_section}>
           <UndoButton onClick={undo} />
           <RedoButton onClick={redo} />
+        </div>
+        <div className={styles.seperator}></div>
+        <div className={styles.tools_panel_section}>
+          <HmsControls />
         </div>
       </div>
     </div>
