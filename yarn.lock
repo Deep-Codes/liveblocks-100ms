@@ -2,21 +2,21 @@
 # yarn lockfile v1
 
 
-"@100mslive/hms-video-store@^0.2.71", "@100mslive/hms-video-store@^0.2.85":
-  version "0.2.85"
-  resolved "https://registry.yarnpkg.com/@100mslive/hms-video-store/-/hms-video-store-0.2.85.tgz#b94f75a02acb9f6a886a3fedd8f119d6d8cc502e"
-  integrity sha512-FHyGhN1UwOHDnhkK1/uX+L5bhmvLq63VOQpn0bFrG8xLrrtrYgA41zHHJZpgmt4m2LPO9QFYUWZzRB9KY2GjJQ==
+"@100mslive/hms-video-store@0.2.94":
+  version "0.2.94"
+  resolved "https://registry.yarnpkg.com/@100mslive/hms-video-store/-/hms-video-store-0.2.94.tgz#8e6cb9c7fa7d29070c191d8e5304b3411cb21cec"
+  integrity sha512-esquCvqEsM0LTBv4SIG5ZpLM30pAmu8/Vj6D/UDkQ/4ripF8wswbwVwDPgQcn9ZGB85bHi7icxZDbXCl3WtFrg==
   dependencies:
-    "@100mslive/hms-video" "0.1.39"
+    "@100mslive/hms-video" "0.1.48"
     eventemitter2 "^6.4.5"
     immer "^9.0.6"
     reselect "4.0.0"
     zustand "3.5.7"
 
-"@100mslive/hms-video@0.1.39", "@100mslive/hms-video@^0.1.23", "@100mslive/hms-video@^0.1.39":
-  version "0.1.39"
-  resolved "https://registry.yarnpkg.com/@100mslive/hms-video/-/hms-video-0.1.39.tgz#8b1ca01f6d5af0cefb73392914a66b4de030ce15"
-  integrity sha512-b5bi8BOBvXRz8JMVyhc4q9FlWY7LieoQXsFFWImbDlpn1VWO/SfsfhG5FR5NZJgpPu4OoA6/13TZoikkcAtdKg==
+"@100mslive/hms-video@0.1.48":
+  version "0.1.48"
+  resolved "https://registry.yarnpkg.com/@100mslive/hms-video/-/hms-video-0.1.48.tgz#71aab9ce4d0d31693f4d7a90da75f06eaa6111b7"
+  integrity sha512-7XQFQ+KNSU7fkk50Vx7TR1RsC/O2kHCl2Ce+kEEck9kjrz3ZjCLQ6Bd9i0w/ziaFCK4HrjmqHX2NicXQc3K11w==
   dependencies:
     eventemitter2 "^6.4.5"
     sdp-transform "^2.14.1"
@@ -24,19 +24,19 @@
     uuid "^8.3.2"
     webrtc-adapter "^8.0.0"
 
-"@100mslive/react-icons@0.0.3-alpha.3":
-  version "0.0.3-alpha.3"
-  resolved "https://registry.yarnpkg.com/@100mslive/react-icons/-/react-icons-0.0.3-alpha.3.tgz#8d64757b222d99ca148c9374c3ea964fa002eb5d"
-  integrity sha512-V3/q8KcTBwzhtj+5ap33Wlu2o+BOXWYFjC0aR2vP32bYTIFbI7hG2IahKqNaxqUktV185Xza/38cNDPaFyj67Q==
+"@100mslive/react-icons@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@100mslive/react-icons/-/react-icons-0.0.11.tgz#0c8bc9d5edf522d86ca384303a3688aba8c86a23"
+  integrity sha512-9S0BNtWDt2MVYrNniuqzhKssxzRdv2JonozxmbWrVjvdVrNR2bhzv1hrkgnda6jG15hF2QHgwX+Z0NDifZy9qQ==
 
-"@100mslive/react-sdk@0.0.2-alpha":
-  version "0.0.2-alpha"
-  resolved "https://registry.yarnpkg.com/@100mslive/react-sdk/-/react-sdk-0.0.2-alpha.tgz#ac46c284224939726d5bc4e8c53a86eec325b7b4"
-  integrity sha512-S0bhaL6oEPlhNRhm9qbTO3TmjaBeMv2U+J3nPfzAuVHJpOdQqnBikGj/QDDciLhPfZIDz0YPr0KbXzPbDsojVA==
+"@100mslive/react-sdk@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@100mslive/react-sdk/-/react-sdk-0.0.11.tgz#f9b4c5ca3d8780d8e0d3bde01d2a25d56855b45e"
+  integrity sha512-UGL1liUcmDExsR86BUb00YwZML/OtSHLXG8U4Dn0+CAUUpy6olwwECTZOyqpeIT5BMY66pA3USEUO7Xk052Bqg==
   dependencies:
-    "@100mslive/hms-video" "^0.1.23"
-    "@100mslive/hms-video-store" "^0.2.71"
+    "@100mslive/hms-video-store" "0.2.94"
     react-intersection-observer "^8.33.1"
+    react-resize-detector "^7.0.0"
     zustand "^3.6.2"
 
 "@babel/code-frame@7.12.11":
@@ -217,6 +217,11 @@
     "@types/prop-types" "*"
     "@types/scheduler" "*"
     csstype "^3.0.2"
+
+"@types/resize-observer-browser@^0.1.6":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@types/resize-observer-browser/-/resize-observer-browser-0.1.7.tgz#294aaadf24ac6580b8fbd1fe3ab7b59fe85f9ef3"
+  integrity sha512-G9eN0Sn0ii9PWQ3Vl72jDPgeJwRWhv2Qk/nQkJuWmRmOB4HX3/BhD5SE1dZs/hzPZL/WKnvF0RHdTSG54QJFyg==
 
 "@types/scheduler@*":
   version "0.16.2"
@@ -2101,6 +2106,14 @@ react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
+
+react-resize-detector@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-7.0.0.tgz#fbd46917ee905b7796c797aa6b301b454a6b9229"
+  integrity sha512-Xd1POfpVzH9O3F/xB/0xYy2ijtKjE/z7y4c/aJP593YSzhPy2vDhsNPjes+uQbgL1RezxJajQ679qPs8K5LAFw==
+  dependencies:
+    "@types/resize-observer-browser" "^0.1.6"
+    lodash "^4.17.21"
 
 react-use-gesture@^9.1.3:
   version "9.1.3"

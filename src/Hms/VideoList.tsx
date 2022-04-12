@@ -23,7 +23,9 @@ const VideoList = () => {
 };
 
 const VideoTile: React.FC<{ peer: HMSPeer }> = ({ peer }) => {
-  const ref = useVideo(peer.videoTrack || '');
+  const { videoRef } = useVideo({
+    trackId: peer.videoTrack,
+  });
   return (
     <div className='w-60 h-60 rounded-lg relative'>
       <video
@@ -33,7 +35,7 @@ const VideoTile: React.FC<{ peer: HMSPeer }> = ({ peer }) => {
         autoPlay
         muted
         playsInline
-        ref={ref}
+        ref={videoRef}
       />
       <span
         className={`absolute bottom-2 transform -translate-x-1/2 left-1/2 text-gray-500`}

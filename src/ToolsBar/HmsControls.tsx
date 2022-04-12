@@ -1,8 +1,9 @@
 import {
   selectIsConnectedToRoom,
-  selectIsLocalAudioEnabled,
-  selectIsLocalVideoEnabled,
-} from '@100mslive/hms-video-store';
+  useHMSActions,
+  useHMSStore,
+  useAVToggle,
+} from '@100mslive/react-sdk';
 import {
   VideoOffIcon,
   VideoOnIcon,
@@ -11,7 +12,6 @@ import {
   HangUpIcon,
   InviteIcon,
 } from '@100mslive/react-icons';
-import { useHMSActions, useHMSStore } from '@100mslive/react-sdk';
 import React from 'react';
 import getToken from '../getToken';
 import IconButton from '../IconButton';
@@ -27,22 +27,8 @@ const HmsControls = () => {
   const isConnected = useHMSStore(selectIsConnectedToRoom);
   const className = `p-1.5 mx-1`;
   const actions = useHMSActions();
-  const audioEnabled = useHMSStore(selectIsLocalAudioEnabled);
-  const videoEnabled = useHMSStore(selectIsLocalVideoEnabled);
-  const toggleAudio = async () => {
-    try {
-      await actions.setLocalAudioEnabled(!audioEnabled);
-    } catch (error) {
-      console.log('Error: ', error);
-    }
-  };
-  const toggleVideo = async () => {
-    try {
-      await actions.setLocalVideoEnabled(!videoEnabled);
-    } catch (error) {
-      console.log('Error: ', error);
-    }
-  };
+  const { isLocalAudioEnabled, isLocalVideoEnabled, toggleAudio, toggleVideo } =
+    useAVToggle();
   const leave = async () => {
     try {
       await actions.leave();
@@ -70,17 +56,17 @@ const HmsControls = () => {
         <>
           <IconButton
             className={className}
-            isActive={videoEnabled}
+            isActive={isLocalVideoEnabled}
             onClick={toggleVideo}
           >
-            {videoEnabled ? <VideoOnIcon /> : <VideoOffIcon />}
+            {isLocalVideoEnabled ? <VideoOnIcon /> : <VideoOffIcon />}
           </IconButton>
           <IconButton
             className={className}
-            isActive={audioEnabled}
+            isActive={isLocalAudioEnabled}
             onClick={toggleAudio}
           >
-            {audioEnabled ? <MicOnIcon /> : <MicOffIcon />}
+            {isLocalAudioEnabled ? <MicOnIcon /> : <MicOffIcon />}
           </IconButton>
           <IconButton className={className} onClick={leave}>
             <HangUpIcon />
